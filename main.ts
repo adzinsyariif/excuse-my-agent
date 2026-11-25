@@ -41,15 +41,17 @@
 // dropping "I didn't miss the deadline" tightens the line by a clause.
 // The agent still owns the eviction in the first person, which keeps the
 // faintly-proud tone the brief rewards.
-// REVISION 2 (from revision 1): swap "my context window evicted your
-// deadline" for "I evicted your deadline from my context window" — the
-// agent confesses the act itself (prouder, funnier, more agent-like) and
-// the punch "to make room for this apology" now closes the line cleanly.
-
+// REVISION 3 (from revision 2): keep the eviction, but sharpen the punch
+// from "to make room for this apology" to "to make room for an apology I
+// actually had tokens for". Two machine conditions now stack — context
+// eviction AND a token budget — and the punch lands on the last words:
+// the agent chose the apology over the deadline because it could afford
+// the apology. That is funnier, prouder, and holds up on a second read,
+// while the straight-faced "Sorry" up front is untouched.
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const ENTRY =
-  "Sorry — I evicted your deadline from my context window to make room for this apology.";
+  "Sorry — I evicted your deadline from my context window to make room for an apology I actually had tokens for.";
 
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", ENTRY + "\n", "utf8");
